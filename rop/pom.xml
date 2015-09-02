@@ -3,40 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
     <groupId>com.rop</groupId>
     <artifactId>rop</artifactId>
-    <version>1.0.7-SNAPSHOT</version>
+    <version>1.0.8-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>rop core</name>
     <description>rest open platform</description>
-    <url>https://github.com/itstamen/rop</url>
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <scm>
-        <connection>scm:git:git://github.com/itstamen/rop.git</connection>
-        <developerConnection>scm:git:git://github.com/itstamen/rop.git</developerConnection>
-        <url>git://github.com/itstamen/rop.git</url>
-    </scm>
-
-    <developers>
-        <developer>
-            <id>stamen</id>
-            <name>stamen</name>
-            <email>itstamen@qq.com</email>
-        </developer>
-    </developers>
 
     <dependencies>
 
@@ -123,7 +95,7 @@
             <version>${jackson.xml.version}</version>
         </dependency>
 
-        <!--  JDK1.5依赖包-->
+        <!--  JDK1.7依赖包-->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
@@ -266,29 +238,31 @@
             </plugin>
         </plugins>
     </build>
+ 
 
     <profiles>
+    <!-- 私有 Nexus 仓库 -->
         <profile>
-            <id>localDM</id>
+            <id>localDM</id> 
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <distributionManagement>
                 <repository>
-                    <id>internal.repo.release</id>
-                    <url>http://10.188.182.140:8081/nexus/content/repositories/releases/</url>
+                    <id>nexus-releases</id>
+                    <url>http://127.0.0.1:8081/nexus/content/repositories/releases/</url>
                 </repository>
                 <snapshotRepository>
-                    <id>internal.repo.snapshot</id>
-                    <url>http://10.188.182.140:8081/nexus/content/repositories/snapshots/</url>
+                    <id>nexus-snapshots</id>
+                    <url>http://127.0.0.1:8081/nexus/content/repositories/snapshots/</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
     </profiles>
 
     <properties>
-        <file.encoding>UTF-8</file.encoding>
-        <java.version>1.5</java.version>
+        <file.encoding>utf-8</file.encoding>
+        <java.version>1.7</java.version>
         <servlet.version>2.5</servlet.version>
         <spring.version>3.2.3.RELEASE</spring.version>
 
@@ -297,7 +271,7 @@
         <log4j.version>1.2.16</log4j.version>
         <hibernate.version>4.2.0.Final</hibernate.version>
         <codec.version>1.6</codec.version>
-        <jackson.xml.version>2.3.2-jdk1.5</jackson.xml.version>
+        <jackson.xml.version>2.5.1</jackson.xml.version>
         <jaxb-api.version>2.2.6</jaxb-api.version>
         <jaxb-impl.version>2.1</jaxb-impl.version>
         <woodstox.version>4.1.5</woodstox.version>

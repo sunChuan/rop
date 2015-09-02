@@ -12,6 +12,7 @@
     <!--① 扫描Spring Bean-->
     <context:component-scan base-package="com.rop.sample"/>
 
+
     <!-- 启动Rop框架 -->
     <rop:annotation-driven
         id="router"
